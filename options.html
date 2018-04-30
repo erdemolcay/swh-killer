@@ -1,0 +1,84 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>swh killer</title>
+    <style>
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            padding-left: 28px;
+            cursor: pointer;
+            line-height: 20px;
+            display: inline-block;
+            color: #666;
+        }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ddd;
+            border-radius: 100%;
+            background: #fff;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background: #81c14b;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body style="width:170px;">
+<p>ekşi sözlük'te "swh" içeren akıllı bkz'ların yerine ne gelsin?</p>
+<form id="options">
+    <p>
+        <input type="radio" id="empty" value="" name="replace-value">
+        <label for="empty"><em>hiçbir şey!</em></label>
+    </p>
+    <p>
+        <input type="radio" id="smiley" value=" :)" name="replace-value">
+        <label for="smiley">:)</label>
+    </p>
+    <p>
+        <input type="radio" id="custom" value="custom" name="replace-value">
+        <label for="custom">
+            <input id="custom-value" type="text" size="10">
+        </label>
+    </p>
+</form>
+<script src="options.js"></script>
+</body>
+</html>
